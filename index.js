@@ -16,7 +16,11 @@ const displayBanner = () => {
 
 // sensor email
 function sensor(email) {
+  if(!email || email == undefined) {
+    return email
+  } else {
   return email.replace(/^(.{1}).*(.{1})@(.*)$/, "$1******$2@$3");
+  }
 }
 
 // Format timestamps
@@ -212,7 +216,10 @@ const readInputFiles = async () => {
     }
 
     let proxies = [];
-    try {
+    
+    // Direct Connection without proxies
+/*
+try {
       const proxyData = await fs.readFile('proxy.txt', 'utf8');
       proxies = proxyData.split('\n')
         .map(line => line.trim())
@@ -221,7 +228,7 @@ const readInputFiles = async () => {
     } catch (error) {
       console.log(chalk.yellow('No proxy.txt found or error reading proxies. Running without proxies.'));
     }
-
+*/
     return { tokens, proxies };
   } catch (error) {
     throw new Error(`Failed to read input files: ${error.message}`);
