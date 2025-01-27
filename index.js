@@ -14,6 +14,11 @@ const displayBanner = () => {
   console.log(chalk.green(figlet.textSync('AirdropInsiders', { horizontalLayout: 'default' })));
 };
 
+// sensor email
+function sensor(email) {
+  return email.replace(/^(.{1}).*(.{1})@(.*)$/, "$1******$2@$3");
+}
+
 // Format timestamps
 const getTimestamp = () => {
   return new Date().toLocaleTimeString();
@@ -33,7 +38,7 @@ const createStatsTable = (accounts) => {
     table.push([
       account.token.substring(0, 8) + '...',
       account.username || '-',
-      account.email || '-',
+      sensor(account.email) || '-',
       account.proxyConfig ? `${account.proxyConfig.type}://${account.proxyConfig.host}:${account.proxyConfig.port}`.substring(0, 20) + '...' : 'Direct',
       account.status,
       account.pointsToday?.toFixed(2) || '0.00',
@@ -50,7 +55,7 @@ const logSuccess = (accountId, message, pointsToday, totalPoints, username, emai
   console.log(
     chalk.green(`[${getTimestamp()}] Account ${accountId}: ${message}`) +
     chalk.blue(` | ${username}`) +
-    chalk.yellow(` | ${email}`) +
+    chalk.yellow(` | ${sensor(email)}`) +
     chalk.magenta(` | Points Today: ${pointsToday?.toFixed(2)}`) +
     chalk.cyan(` | Total Points: ${totalPoints?.toFixed(2)}`)
   );
