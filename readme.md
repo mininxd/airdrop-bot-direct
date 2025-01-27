@@ -17,8 +17,6 @@ yes, i removed that for PM2, and i also removed a proxy that allows you to run b
 <hr>
 
 
-#### PM2 example
-```bash
-pm2 logs [id] --lines 10
-```
-![Screenshot_20250127-133738_Termux~2-picsay](https://github.com/user-attachments/assets/b2154c1e-27ac-478b-8cbf-03a80a867d01)
+### PM2 example
+![Screenshot_20250127-134758_Chrome](https://github.com/user-attachments/assets/76bd1c0d-2be8-46d1-81d5-9661261d206a)
+![Screenshot_20250127-133738_Termux~2-picsay](https://github.com/user-attachments/assets/1b9362a8-2f29-437f-9b30-3ed81b3f2bcc)
